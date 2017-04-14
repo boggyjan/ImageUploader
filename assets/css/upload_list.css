@@ -1,0 +1,38 @@
+.uploaded-list {
+  margin-top: 5px;
+  padding: 10px;
+  min-height: 100px;
+  border: 1px solid #999;
+}
+
+.uploaded-list:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.pic-item {
+  float: left;
+  position: relative;
+  margin: 3px;
+  padding: 2px;
+  width: 100px;
+  height: 120px;
+  border: 1px solid #999;
+  background: #fff;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+}
+
+.pic-item img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.pic-item div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+}
