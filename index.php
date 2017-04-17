@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>GraceGift Admin MultiImageUploader with jQuery UI Sortable</title>
+  <title>Multiple Image Uploader Demo Page</title>
   <link rel="stylesheet" href="assets/css/upload_list.css">
 </head>
 <body>
