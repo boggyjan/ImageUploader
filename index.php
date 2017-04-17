@@ -9,7 +9,14 @@
   
   <button class="upload-btn">上傳檔案</button>
   <div class="uploaded-list">
-    <!--<div class="pic-item"><img src="upload/29aeb7985a3fe635d9d71b5b4dc339ae.jpg"><div>color_platte.jpg</div></div>-->
+    <!--
+    list sample code
+    <div class="pic-item" style="position: relative; left: 0px; top: 0px;">
+      <img src="upload/f139a58e495675aea4beb9cb70b33f01.jpg">
+      <div class="filename">flower.jpg</div>
+      <a class="remove-btn" href="#remove-uploaded-image" data-path="upload/f139a58e495675aea4beb9cb70b33f01.jpg">刪除</a>
+    </div>
+    -->
   </div>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
