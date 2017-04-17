@@ -17,7 +17,7 @@
   margin: 3px;
   padding: 2px;
   width: 100px;
-  height: 120px;
+  height: 140px;
   border: 1px solid #999;
   background: #fff;
   color: #999;
@@ -30,9 +30,18 @@
   max-height: 100px;
 }
 
-.pic-item div {
+.pic-item .filename {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 23px;
+}
+
+.pic-item .remove-btn {
   position: absolute;
   left: 0;
   right: 0;
   bottom: 3px;
+  color: #f99;
+  text-decoration: none;
 }

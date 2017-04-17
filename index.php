@@ -8,7 +8,9 @@
 <body>
   
   <button class="upload-btn">上傳檔案</button>
-  <div class="uploaded-list"></div>
+  <div class="uploaded-list">
+    <!--<div class="pic-item"><img src="upload/29aeb7985a3fe635d9d71b5b4dc339ae.jpg"><div>color_platte.jpg</div></div>-->
+  </div>
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -43,10 +45,18 @@
           pic.src = eles[i].path;
           
           let filename = document.createElement('div');
+          filename.className = 'filename';
           filename.innerText = eles[i].filename;
           
+          let removebtn = document.createElement('a');
+          removebtn.className = 'remove-btn';
+          removebtn.href = '#remove-uploaded-image';
+          removebtn.dataset.path = eles[i].path;
+          removebtn.innerText = '刪除';
+
           container.append(pic);
           container.append(filename);
+          container.append(removebtn);
           list.append(container);
         }
         saveListData(list);
@@ -87,6 +97,17 @@
           saveListData(this);
         }
       }).disableSelection();
+
+      // 刪除圖片
+      $(document).on('click', 'a.remove-btn[href="#remove-uploaded-image"]', function(e) {
+        var target = $(e.target);
+        var path = target.data('path');
+        console.log(path);
+        // 把path傳給負責刪檔的controller action
+        // 回傳成功 js執行以下code，失敗則 alert('刪除失敗');
+        target.closest('.pic-item').remove();
+      });
+      
     });
 
   </script>
