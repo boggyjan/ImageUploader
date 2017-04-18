@@ -11,13 +11,15 @@ class ImageUploader {
 
     ['addEventListener', 'dispatchEvent', 'removeEventListener'].forEach(f => this[f] = (...xs) => document[f](...xs));
 
+    this.uploading = false;
+
     this.url = init.url;
     this.limit = init.limit;
     this.maxSize = init.maxSize;
 
     this.file = document.createElement('input');
     this.file.type = 'file';
-    this.file.accept = 'image/*';
+    this.file.accept = 'image/jpeg';
     this.file.name = 'images[]';
     this.file.multiple = init.multiple;
     this.file.addEventListener('change', this.uploadFile.bind(this));
@@ -32,11 +34,11 @@ class ImageUploader {
   }
 
   openFileBrowser(e) {
-    this.file.dispatchEvent(new MouseEvent('click'));
+    if (!this.uploading) this.file.dispatchEvent(new MouseEvent('click'));
+    else alert('先前的檔案上傳中，請待上傳完畢，再上傳其他檔案。')
   }
 
   uploadFile(e) {
-
     let files = this.file.files;
     let limit = typeof this.limit === 'function' ? this.limit() : this.limit;
     
@@ -52,13 +54,17 @@ class ImageUploader {
       }
     }
 
+    // upload begin
     let uploader = this;
+    uploader.uploading = false;
 
     fetch(this.url, {
       method: 'POST',
       body: new FormData(this.form)
     })
     .then(function(response) {
+      uploader.uploading = false;
+
       if (response.status == 200) {
         response.text().then(function(text) {
           let event = new Event('success');
@@ -73,6 +79,7 @@ class ImageUploader {
       }
     })
     .catch(function(error) {
+      uploader.uploading = false;
       let event = new Event('error');
       event.data = error;
       uploader.dispatchEvent(event);
