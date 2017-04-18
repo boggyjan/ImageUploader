@@ -33,9 +33,10 @@
       var uploader = new ImageUploader({
         ele: document.querySelector('.upload-btn'),
         url: 'upload.php', //sample php code in upload.php
+        fileType: 'image/png',
         multiple: true,
         limit: () => { //limit 可以設計成可以直接帶入數字，或一個function（如這個範例這樣
-          return 4 - list.querySelectorAll('.pic-item').length;
+          return 40 - list.querySelectorAll('.pic-item').length;
         },
         maxSize: 2 /* mb */
       });

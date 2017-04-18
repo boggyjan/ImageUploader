@@ -2,7 +2,7 @@
 
 class ImageUploader {
 
-  /* init is a obj contains {ele, url, multiple, limit, maxSize} */
+  /* init is a obj contains {ele, url, fileType, multiple, limit, maxSize} */
   constructor(init) {
     
     if (!init.ele || !init.url) {
@@ -19,7 +19,7 @@ class ImageUploader {
 
     this.file = document.createElement('input');
     this.file.type = 'file';
-    this.file.accept = 'image/jpeg';
+    this.file.accept = init.fileType ? init.fileType : 'image/*';
     this.file.name = 'images[]';
     this.file.multiple = init.multiple;
     this.file.addEventListener('change', this.uploadFile.bind(this));
