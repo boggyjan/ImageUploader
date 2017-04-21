@@ -9,7 +9,8 @@ class ImageUploader {
       console.error('The ele and url param of ImageUploader constructor is required.');
     }
 
-    ['addEventListener', 'dispatchEvent', 'removeEventListener'].forEach(f => this[f] = (...xs) => document[f](...xs));
+    let delegate = document.createDocumentFragment();
+    ['addEventListener', 'dispatchEvent', 'removeEventListener'].forEach(f => this[f] = (...xs) => delegate[f](...xs));
 
     this.uploading = false;
 
