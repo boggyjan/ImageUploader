@@ -32,9 +32,11 @@
 
 .pic-item .filename {
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 3px;
+  right: 3px;
   bottom: 23px;
+  overflow: hidden;
+  font-size: 12px;
 }
 
 .pic-item .remove-btn {
