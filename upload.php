@@ -13,7 +13,9 @@
       array_push($files, array(
         'filename' => $_FILES['images']['name'][$i],
         'path' => $target_path,
-        'status' => 'done'
+        'status' => 'done',
+        'param1' => $_POST['param1'], // 可以用 $_POST['xxx'] 接 ImageUploader data 參數回傳的資料
+        'param2' => $_POST['param2']
       ));
     } else{
       array_push($files, array(

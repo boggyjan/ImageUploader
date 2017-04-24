@@ -30,6 +30,13 @@ class ImageUploader {
     this.form.hidden = true;
     this.form.append(this.file);
 
+    for (let i in init.data) {
+      let dataTag = document.createElement('input');
+      dataTag.name = i;
+      dataTag.value =  init.data[i];
+      this.form.append(dataTag);
+    }
+
     init.ele.parentNode.insertBefore(this.form, init.ele);
     init.ele.addEventListener('click', this.openFileBrowser.bind(this));
   }

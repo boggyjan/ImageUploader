@@ -34,6 +34,7 @@
         ele: document.querySelector('.upload-btn'),
         url: 'upload.php', //sample php code in upload.php
         fileType: 'image/png',
+        data: {param1: 'ABCDEFG', param2: 'HIJKLMNOP'}, //帶入其他參數的範例
         multiple: true,
         limit: () => { //limit 可以設計成可以直接帶入數字，或一個function（如這個範例這樣
           return 40 - list.querySelectorAll('.pic-item').length;
@@ -44,6 +45,7 @@
       // 偵聽上傳成功事件
       uploader.addEventListener('success', function(event){
         let eles = JSON.parse(event.data);
+        console.log(eles);
 
         for (let i = 0; i < eles.length; i++) {
           let container = document.createElement('div');
