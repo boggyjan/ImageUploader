@@ -50,6 +50,8 @@ class ImageUploader {
     let files = this.file.files;
     let limit = typeof this.limit === 'function' ? this.limit() : this.limit;
     
+    if (!files.length) return;
+
     if (!isNaN(limit) && files.length > limit) {
       alert(`您只能再上傳 ${limit} 張，請重新選取。`);
       return;
